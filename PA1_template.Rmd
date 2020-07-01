@@ -14,7 +14,8 @@ hist(totalSteps$steps, breaks = 20)
 
 ## What is mean total number of steps taken per day?
 
-mean(totalSteps$steps)
+mean(totalSteps$steps, na.rm = TRUE)
+median(totalSteps$steps, na.rm = TRUE)
 
 ## What is the average daily activity pattern?
 
