@@ -85,5 +85,10 @@ mean(totalStepsComplete$steps, na.rm = TRUE)
 ```{r echo=TRUE}
 median(totalStepsComplete$steps, na.rm = TRUE)
 ```
+total.steps <- tapply(fitdataComplete$steps, fitdataComplete$date, FUN=sum)
+
+* Basically the values are the same (not identical)
+* The **mean** value is the **identical** as the value before imputing missing data.
+* The median value shows **a little** difference.
 
 ## Are there differences in activity patterns between weekdays and weekends?
