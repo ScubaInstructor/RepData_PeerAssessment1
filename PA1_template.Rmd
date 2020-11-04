@@ -28,12 +28,13 @@ hist(totalSteps$steps)
 ```{r echo=TRUE}
 mean(totalSteps$steps, na.rm = TRUE)
 ```
-
-median(totalSteps$steps, na.rm = TRUE)
-
 ## What is the average daily activity pattern?
 
-
+* Plot daily activity pattern
+```{r echo=TRUE}
+stepsInterval<-aggregate(steps~interval,data=fitdata,mean,na.rm=TRUE)
+plot(steps~interval,data=stepsInterval,type="l")
+```
 
 ## Imputing missing values
 
