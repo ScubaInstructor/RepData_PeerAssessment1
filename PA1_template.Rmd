@@ -64,12 +64,10 @@ meanIntervalSteps<-function(interval){
 * Create a copy of the original data and fill NA rows with chosen strategy:
 
 ```{r echo=TRUE}
-activityFilled<-fitdata   
-count=0           
-for(i in 1:nrow(activityFilled)){
-  if(is.na(activityFilled[i,]$steps)){
-    activityFilled[i,]$steps<-interval2steps(activityFilled[i,]$interval)
-    count=count+1
+fitdataComplete<-fitdata             
+for(i in 1:nrow(fitdataComplete)){
+  if(is.na(fitdataComplete[i,]$steps)){
+    fitdataComplete[i,]$steps<-meanIntervalSteps(fitdataComplete[i,]$interval)
   }
 }
 ```
