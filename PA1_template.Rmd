@@ -53,6 +53,14 @@ stepsInterval[which.max(stepsInterval$steps),]
 sum(is.na(fitdata))
 ```
 
+* Filing in all of the missing values with the mean for that 5-minute interval. 
+
+```{r echo=TRUE}
+interval2steps<-function(interval){
+    stepsInterval[stepsInterval$interval==interval,]$steps
+}
+```
+
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
