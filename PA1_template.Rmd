@@ -28,12 +28,22 @@ hist(totalSteps$steps)
 ```{r echo=TRUE}
 mean(totalSteps$steps, na.rm = TRUE)
 ```
+
+* Median of the total number of steps taken per day
+```{r echo=TRUE}
+median(totalSteps$steps, na.rm = TRUE)
+```
+
 ## What is the average daily activity pattern?
 
-* Plot daily activity pattern
+* Plot daily activity pattern of the 5-minute interval and average number of steps taken
 ```{r echo=TRUE}
 stepsInterval<-aggregate(steps~interval,data=fitdata,mean,na.rm=TRUE)
 plot(steps~interval,data=stepsInterval,type="l")
+```
+* 5-minute interval with maximum number of steps on average across all days
+```{r echo=TRUE}
+stepsInterval[which.max(stepsInterval$steps),]
 ```
 
 ## Imputing missing values
