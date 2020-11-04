@@ -23,7 +23,12 @@ totalSteps <- aggregate(steps~date, data=fitdata, sum, na.rm=TRUE)
 ```{r echo=TRUE}
 hist(totalSteps$steps)
 ```
+
+* Mean of the total number of steps taken per day
+```{r echo=TRUE}
 mean(totalSteps$steps, na.rm = TRUE)
+```
+
 median(totalSteps$steps, na.rm = TRUE)
 
 ## What is the average daily activity pattern?
