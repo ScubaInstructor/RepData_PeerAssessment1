@@ -105,3 +105,5 @@ weekDay.End <- function(date) {
 }
 
 fitdataComplete$day <- sapply(fitdataComplete$date, FUN=weekDay.End)
+
+totalStepsWeekDay.End <- aggregate(steps ~ interval + day, data=fitdataComplete, mean)
