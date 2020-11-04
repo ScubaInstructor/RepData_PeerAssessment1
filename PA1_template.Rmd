@@ -94,7 +94,7 @@ median(totalStepsComplete$steps, na.rm = TRUE)
 
 fitdataComplete$date <- as.Date(fitdataComplete$date)
 
-weekDay-End <- function(date) {
+weekDay.End <- function(date) {
   day <- weekdays(date)
   if (day %in% c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday"))
     return("weekday")
@@ -104,4 +104,4 @@ weekDay-End <- function(date) {
     stop("invalid date")
 }
 
-fitdataComplete$day <- sapply(fitdataComplete$date, FUN=weekDay-End)
+fitdataComplete$day <- sapply(fitdataComplete$date, FUN=weekDay.End)
