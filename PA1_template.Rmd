@@ -71,5 +71,19 @@ for(i in 1:nrow(fitdataComplete)){
   }
 }
 ```
+* Process complete data: steps~date
+```{r echo=TRUE}
+totalStepsComplete <- aggregate(steps~date, data=fitdataComplete, sum, na.rm=TRUE)
+```
+
+* Mean of the total number of steps taken per day without missing values
+```{r echo=TRUE}
+mean(totalStepsComplete$steps, na.rm = TRUE)
+```
+
+* Median of the total number of steps taken per day
+```{r echo=TRUE}
+median(totalStepsComplete$steps, na.rm = TRUE)
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
