@@ -7,8 +7,9 @@ output:
 
 
 ## Loading and preprocessing the data
-
+```{r echo=TRUE}
 fitdata <- read.csv("RepData_PeerAssessment1/activity.csv")
+```
 totalSteps <- aggregate(steps~date, data=fitdata, sum, na.rm=TRUE)
 hist(totalSteps$steps, breaks = 20)
 
