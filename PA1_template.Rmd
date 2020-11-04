@@ -53,14 +53,25 @@ stepsInterval[which.max(stepsInterval$steps),]
 sum(is.na(fitdata))
 ```
 
-* Filing in all of the missing values with the mean for that 5-minute interval. 
+* Strategy:  Use the mean for that 5-minute interval to fill in missing values (utilizing below function) 
 
 ```{r echo=TRUE}
-interval2steps<-function(interval){
+meanIntervalSteps<-function(interval){
     stepsInterval[stepsInterval$interval==interval,]$steps
 }
 ```
 
+* Create a copy of the original data and fill NA rows with chosen strategy:
 
+```{r echo=TRUE}
+activityFilled<-fitdata   
+count=0           
+for(i in 1:nrow(activityFilled)){
+  if(is.na(activityFilled[i,]$steps)){
+    activityFilled[i,]$steps<-interval2steps(activityFilled[i,]$interval)
+    count=count+1
+  }
+}
+```
 
 ## Are there differences in activity patterns between weekdays and weekends?
