@@ -48,6 +48,11 @@ stepsInterval[which.max(stepsInterval$steps),]
 
 ## Imputing missing values
 
+* Number of rows in dataset with missing values
+```{r echo=TRUE}
+sum(is.na(fitdata))
+```
+
 
 
 ## Are there differences in activity patterns between weekdays and weekends?
