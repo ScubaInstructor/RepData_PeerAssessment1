@@ -19,6 +19,10 @@ totalSteps <- aggregate(steps~date, data=fitdata, sum, na.rm=TRUE)
 
 ## What is mean total number of steps taken per day?
 
+* Histogram of the total number of steps taken each day
+```{r echo=TRUE}
+hist(totalSteps$steps)
+```
 mean(totalSteps$steps, na.rm = TRUE)
 median(totalSteps$steps, na.rm = TRUE)
 
