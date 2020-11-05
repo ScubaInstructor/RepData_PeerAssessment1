@@ -1,5 +1,11 @@
-RepData PeerAssesssment 1
-========================================================
+---
+title: "RepData PeerAssesssment 1"
+author: "Jochen van Waasen"
+date: '2020-11-05'
+output:
+  html_document:
+    keep_md: yes
+---
 
 ## Loading and preprocessing the data
 * Load data file
