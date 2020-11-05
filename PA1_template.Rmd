@@ -1,10 +1,5 @@
----
-title: "Reproducible Research: Peer Assessment 1"
-output: 
-  html_document:
-    keep_md: true
----
-
+RepData PeerAssesssment 1
+========================================================
 
 ## Loading and preprocessing the data
 * Load data file
@@ -57,12 +52,12 @@ sum(is.na(fitdata))
 
 ```{r echo=TRUE}
 meanIntervalSteps<-function(interval){
-    stepsInterval[stepsInterval$interval==interval,]$steps
+  stepsInterval[stepsInterval$interval==interval,]$steps
 }
 ```
 
 * Create a copy of the original data and fill NA rows with chosen strategy:
-
+  
 ```{r echo=TRUE}
 fitdataComplete<-fitdata             
 for(i in 1:nrow(fitdataComplete)){
@@ -92,6 +87,7 @@ median(totalStepsComplete$steps, na.rm = TRUE)
 
 ## Are there differences in activity patterns between weekdays and weekends?
 
+```{r echo=TRUE}
 fitdataComplete$date <- as.Date(fitdataComplete$date)
 
 weekDay.End <- function(date) {
@@ -103,6 +99,7 @@ weekDay.End <- function(date) {
   else
     stop("invalid date")
 }
+```
 
 * Create new factor variable weekday/weekend
 ```{r echo=TRUE}
@@ -111,9 +108,9 @@ totalStepsWeekDay.End <- aggregate(steps ~ interval + day, data=fitdataComplete,
 ```
 
 * Panel plot weekday/weekend
-
-library(ggplot2)
 ```{r echo=TRUE}
+library(ggplot2)
+
 ggplot(totalStepsWeekDay.End, aes(interval, steps)) + geom_line() + facet_grid(day ~ .) +
   xlab("5-minute interval") + ylab("Number of steps")
 ```
